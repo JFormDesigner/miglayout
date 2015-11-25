@@ -176,7 +176,9 @@ public final class PlatformDefaults
 	{
 		switch (plaf) {
 			case WINDOWS_XP:
+				setDefaultVisualPadding("Button." + VISUAL_PADDING_PROPERTY, new int[]{1, 1, 1, 1});
 				setDefaultVisualPadding("TabbedPane." + VISUAL_PADDING_PROPERTY, new int[]{1, 0, 1, 2});
+
 				setRelatedGap(LPX7, LPY7);
 				setUnrelatedGap(LPX11, LPY11);
 				setParagraphGap(LPX20, LPY20);

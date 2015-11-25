@@ -369,6 +369,8 @@ public class SwingComponentWrapper implements ComponentWrapper
 								} else {
 									classID = "Button";
 								}
+							} else if (border != null && border.getClass().getName().endsWith(".XPStyle$XPEmptyBorder")) {
+								classID = "Button";
 							} else {
 								classID = "";
 							}
@@ -391,6 +393,13 @@ public class SwingComponentWrapper implements ComponentWrapper
 								} else {
 									classID = "ToggleButton" + size;
 								}
+							} else if (border != null &&
+								component instanceof AbstractButton &&
+								!((AbstractButton)component).isBorderPainted())
+							{
+								// padding depends on border insets (if border is painted)
+								Insets padInsets =  border.getBorderInsets(component);
+								return new int[] { padInsets.top, padInsets.left, padInsets.bottom, padInsets.right };
 							} else {
 								classID = "";
 							}
