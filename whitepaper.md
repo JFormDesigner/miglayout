@@ -461,7 +461,7 @@ has right justified labels.
 Layout Constraints
 ------------------
 
-`wrap [count]`  
+<code>**wrap** _[count]_</code>  
 Sets auto-wrap mode for the layout. This means that the grid will wrap
 to a new column/row after a certain number of columns (for horizontal
 flow) or rows (for vertical flow). The number is either specified as an
@@ -473,20 +473,21 @@ Component Constraint's `"wrap"` and `"newline"` can be used to control
 wrapping.  
 Example: `"wrap" or "wrap 4"`.
 
-`gap gapx [gapy] or gapx gapx or gapy gapy`  
+<code>**gap** _gapx [gapy]_</code> or <code>**gapx** _gapx_</code> or
+<code>**gapy** _gapy_</code>  
 Specifies the default gap between the cells in the grid and are thus
 overriding the platform default value. The gaps are specified as a
 **BoundSize**. See above.  
 Example:
 `"gap 5px 10px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10::50" or "gapy 0:rel:null" or "gap 10! 10!"`.
 
-`debug [millis]`  
+<code>**debug** _[millis]_</code>  
 Turns on debug painting for the container. This will lead to an active
 repaint every `millis` milliseconds. Default value is 1000 (once every
 second).  
 Example: `"debug" or "debug 4000"`.
 
-`nogrid`  
+<code>**nogrid**</code>  
 Puts the layout in a flow-only mode. All components in the flow
 direction will be put in the same cell and will thus not be aligned with
 component in other rows/columns. For normal horizontal flow this is the
@@ -494,12 +495,12 @@ same as to say that all component will be put in the first and only
 column.  
 Example: `"nogrid"`.
 
-`novisualpadding`  
+<code>**novisualpadding**</code>  
 Turns off padding of visual bounds (e.g. compensation for drop
 shadows)  
 Example: `"novisualpadding"`.
 
-`fill or fillx or filly`  
+<code>**fill**</code> or <code>**fillx**</code> or <code>**filly**</code>  
 Claims all available space in the container for the columns and/or rows.
 At least one component need to have a `"grow"` constraint for it to fill
 the container. The space will be divided equal, though honoring
@@ -507,7 +508,7 @@ the container. The space will be divided equal, though honoring
 the component in the rows/columns will migrate to that row/column.  
 Example: `"fill" or "fillx" or "filly"`
 
-`ins/insets ["dialog"] or ["panel"] or [top/all [left] [bottom] [right]]`  
+<code>**ins/insets** _["dialog"]_ or _["panel"]_ or _[top/all [left] [bottom] [right]]_</code>  
 Specified the insets for the laid out container. The gaps before/after
 the first/last column/row is always discarded and replaced by these
 layout insets. This is the same thing as setting an `EmptyBorder` on the
@@ -523,13 +524,14 @@ value will be used for the remaining side. The gaps are specified as a
 Example:
 `"insets dialog" or "ins 0" or "insets 10 n n n" or "insets 10 20 30 40"`.
 
-`flowy`  
+<code>**flowy**</code>  
 Puts the layout in vertical flow mode. This means that the next cell is
 normally below and the next component will be put there instead of to
 the right. Default is horizontal flow.  
 Example: `"flowy"`
 
-`al/align alignx [aligny] or aligny/ay aligny or aligny/ax alignx`  
+<code>**al/align** _alignx [aligny]_</code> or <code>**aligny/ay** _aligny_</code>
+or <code>**aligny/ax** _alignx_</code>  
 Specifies the alignment for the laid out components as a group. If the
 total bounds of all laid out components does not fill the entire
 container the align value is used to position the components within the
@@ -539,19 +541,19 @@ be specified as a **UnitValue** or **AlignKeyword**. See above. If an
 Example:
 `"align 50% 50%" or "aligny top" or "alignx leading" or "align 100px" or "top, left" or "aligny baseline"`
 
-`ltr/lefttoright or rtl/righttoleft`  
+<code>**ltr/lefttoright**</code> or <code>**rtl/righttoleft**</code>  
 Overrides the container's `ComponentOrientation` property for this
 layout. Normally this value is dependent on the `Locale` that the
 application is running. This constraint overrides that value.  
 Example: `"ltr" or "lefttoright" or "rtl"`
 
-`ttb/toptobottom or btt/bottomtotop`  
+<code>**ttb/toptobottom**</code> or <code>**btt/bottomtotop**</code>  
 Specifies if the components should be added in the grid
 **bottom-to-top** or **top-to-bottom**. This value is not picked up from
 the container and is **top-to-bottom** by default.  
 Example: `"ttb" or "toptobottom" or "btt"`
 
-`hidemode`  
+<code>**hidemode**</code>  
 Sets the default hide mode for the layout. This hide mode can be
 overridden by the component constraint. The hide mode specified how the
 layout manager should handle a component that isn't visible. The modes
@@ -566,7 +568,7 @@ are:
 
 Example: `"hidemode 1"`
 
-`nocache`  
+<code>**nocache**</code>  
 Instructs the layout engine to not use caches. This should normally only
 be needed if the `"%"` unit is used as it is a function of the parent
 size. If you are experiencing revalidation problems you can try to set
@@ -614,7 +616,7 @@ possible without making the layout bigger than the container.
 **Note!** `""` is the same as `"[]"` which is the same as `"[pref]"` and
 `"[min:pref:n]"`.
 
-`sg/sizegroup [name]`  
+<code>**sg/sizegroup** _[name]_</code>  
 Gives the row a size group name. All rows that share a size group name
 will get the same **BoundSize** as the row with the largest
 min/preferred size. This is most usable when the size of the row is not
@@ -623,7 +625,7 @@ row(s). An empty name `""` can be used unless there should be more than
 one group.  
 Example: `"sg" or "sg grp1" or "sizegroup props"`.
 
-`fill`  
+<code>**fill**</code>  
 Set the *default value for components* to `"grow"` in the dimension of
 the row. So for columns the components in that column will default to a
 `"growx"` constraint (which can be overridden by the individual
@@ -631,7 +633,7 @@ component constraints). Note that this property does not affect the size
 for the row, but rather the size of the components in the row.  
 Example: `"fill"`.
 
-`nogrid`  
+<code>**nogrid**</code>  
 Puts the row in flow-only mode. All components in the flow direction
 will be put in the same cell and will thus not be aligned with component
 in other rows/columns. This property will only be adhered to if the row
@@ -640,7 +642,7 @@ it is only used for rows and for `"flowy"` it is only used for
 columns.  
 Example: `"nogrid"`.
 
-`grow [weight]`  
+<code>**grow** _[weight]_</code>  
 Sets how keen the row should be to grow in relation to other rows. The
 weight (defaults to 100 if not specified) is purely a relative value to
 other rows' weight. Twice the weight will get double the extra space. If
@@ -651,7 +653,7 @@ only be compared to the weights for rows with the same grow priority.
 See below.  
 Example: `"grow 50" or "grow"`
 
-`growprio priority`  
+<code>**growprio** _priority_</code>  
 Sets the grow priority for the row (not for the components in the row).
 When growing, all rows with higher priorities will be grown to their
 maximum size before any row with lower priority are considered. The
@@ -659,7 +661,7 @@ default grow priority is 100. This can be used to make certain rows grow
 to max before other rows even start to grow.  
 Example: `"growprio 50"`
 
-`shrink weight`  
+<code>**shrink** _weight_</code>  
 Sets how keen/reluctant the row should be to shrink in relation to other
 rows. The weight is purely a relative value to other rows' weights.
 Twice the weight will shrink twice as much when space is scarce. If this
@@ -670,7 +672,7 @@ shrink priority group (other rows with the same shrink priority). See
 below.  
 Example: `"shrink 50"`
 
-`shp/shrinkprio priority`  
+<code>**shp/shrinkprio** _priority_</code>  
 Sets the shrink priority for the row (not for the components in the
 row). When space is scarce and rows needs to be shrunk, all rows with
 higher priorities will be shrunk to their minimum size before any row
@@ -679,7 +681,7 @@ This can be used to make certain rows shrink to min before other rows
 even start to shrink.  
 Example: `"shrinkprio 50" or "shp 110"`
 
-`al/align align`  
+<code>**al/align** _align_</code>  
 Specifies the default alignment for the components in the row. This
 default alignment can be overridden by setting the alignment for the
 component in the Component Constraint. The default row alignment is
@@ -703,7 +705,7 @@ the constraints are specified one by one with comma signs as
 separators.  
 Example: `"width 100px!, grid 3 2, wrap"`.
 
-`wrap [gapsize]`  
+<code>**wrap** _[gapsize]_</code>  
 Wraps to a new column/row **after** the component has been put in the
 next available cell. This means that the **next** component will be put
 on the new row/column. Tip! Read wrap as "wrap after". If specified
@@ -712,7 +714,7 @@ next row (or column if `"flowy"`). Note that the gaps size is **after**
 the row that this component will end up at.  
 Example: `"wrap" or "wrap 15px" or "wrap push" or "wrap 15:push"`
 
-`newline [gapsize]`  
+<code>**newline** _[gapsize]_</code>  
 Wraps to a new column/row **before** the component is put in the next
 available cell. This means that the **this** component will be put on a
 new row/column. Tip! Read wrap as "on a newline". If specified
@@ -722,20 +724,22 @@ the row that this component will end up at.
 Example:
 `"newline"` or `"newline 15px" or "newline push" or "newline 15:push" `
 
-`push [weightx] [weighty] or pushx[weightx] or pushy [weighty]`  
+<code>**push** _[weightx] [weighty]_</code> or <code>**pushx** _[weightx]_</code>
+or <code>**pushy** _[weighty]_</code>  
 Makes the row and/or column that the component is residing in grow with
 `"weight"`. This can be used instead of having a "grow" keyword in the
 column/row constraints.  
 Example: `"push" or "pushx 200"`.
 
-`skip [count]`  
+<code>**skip** _[count]_</code>  
 Skips a number of cells in the flow. This is used to jump over a number
 of cells before the next free cell is looked for. The skipping is done
 before this component is put in a cell and thus this cells is affected
 by it. `"count"` defaults to 1 if not specified.  
 Example: `"skip" or "skip 3"`.
 
-`span [countx] [county] or spany/sy [count] or spanx/sx [count]`  
+<code>**span** _[countx] [county]_</code> or <code>**spany/sy** _[count]_</code>
+or <code>**spanx/sx** _[count]_</code>  
 Spans the current cell (merges) over a number of cells. Practically this
 means that this cell and the *count* number of cells will be treated as
 one cell and the component can use the space that all these cells have.
@@ -747,7 +751,7 @@ row is the same thing as setting `"nogrid"` in the row constraint.
 Example:
 `"span" or "span 4" or "span 2 2" or "spanx" or "spanx 10" or "spanx 2, spany 2"`.
 
-`split [count]`  
+<code>**split** _[count]_</code>  
 Splits the cell in a number of sub-cells. Practically this means that
 the next `count` number components will be put in the same cell, next to
 eachother without gaps. Only the first component in a cell can set the
@@ -759,7 +763,7 @@ two will move to a new row/column as usual. Note! `"skip"` will will
 skip out if the splitting and continue in the next cell.  
 Example: `"split" or "split 4"`.
 
-`cell [col row [span x [span y]]]`  
+<code>**cell** _[col row [span x [span y]]]_</code>  
 Sets the grid cell that the component
 should be placed in. If there are already components in the cell they
 will share the cell. If there are two integers specified they will be
@@ -769,7 +773,7 @@ optional but may be specified. It is the same thing as using the `spanx`
 and `spany` keywords.  
 E.g. `"cell 2 2"` or `"cell 0 1 2 "` or `"cell 1 1 3 3"`.
 
-`flowx or flowy`  
+<code>**flowx**</code> or <code>**flowy**</code>  
 Sets the flow direction in the cell. By default the flow direction in
 the cell is the same as the flow direction for the layout. So if the
 components flows from left to right they will do so for in-cell flow as
@@ -778,7 +782,7 @@ flow direction is changed to `flowy` the components in the cell will be
 positioned above/under each other.  
 Example: `"flowy" or "flowx"`.
 
-`w/width size` or `h/height size`  
+<code>**w/width** _size_</code> or <code>**h/height** _size_</code>  
 Overrides the default size of the component that is set by the UI
 delegate or by the developer explicitly on the component. The size is
 specified as a **BoundSize**. See the *Common Argument Types* section
@@ -790,7 +794,7 @@ Example:
 `"width 10!"  or "width 10" or "h 10:20" or "height pref!" or "w min:100:pref" or "w 100!,h 100!"`
 or `"width visual.x2-pref"`.
 
-`wmin/wmax x-size` or `hmin/hmax y-size`  
+<code>**wmin/wmax** _x-size_</code> or <code>**hmin/hmax** _y-size_</code>  
 Overrides the default size of the component for minimum or maximum size
 that is set by the UI delegate or by the developer explicitly on the
 component. The size is specified as a **BoundSize**. See the *Common
@@ -802,7 +806,8 @@ normal. These keywords are syntactic shorts for `"width size:pref"` or
 respectively.  
 Example: `"wmin 10"  or "hmax pref+100"`.
 
-`grow [weightx] [weighty] or growx [weightx] or growy [weighty]`  
+<code>**grow** _[weightx] [weighty]_</code> or <code>**growx** _[weightx]_</code>
+or <code>**growy** _[weighty]_</code>  
 Sets how keen the component should be to grow in relation to other
 component in the same cell. The weight (defaults to 100 if not
 specified) is purely a relative value to other components' weight. Twice
@@ -814,7 +819,8 @@ the weights in the same grow priority group and for the same cell. See
 below.  
 Example: `"grow 50 20" or "growx 50" or "grow" or "growx" or "growy 0"`
 
-`growprio/gp prio or growpriox/gpx priox or growprioy/gpy prioy`  
+<code>**growprio/gp** _prio_</code> or <code>**growpriox/gpx** _priox_</code>
+or <code>**growprioy/gpy** _prioy_</code>  
 Sets the grow priority for the component. When growing, all components
 with higher priorities will be grown to their maximum size before any
 component with lower priority are considered. The default grow priority
@@ -823,7 +829,7 @@ max before other components even start to grow.
 Example:
 `"growprio 50 50"  or "gp 110 90" or "gpx 200" or "prowprioy 200"`
 
-`shrink weightx [weighty]`  
+<code>**shrink** _weightx [weighty]_</code>  
 Sets how keen/reluctant the component should be to shrink in relation to
 other components. The weight is purely a relative value to other
 components' weight. Twice the weight will shrink twice as much when
@@ -834,7 +840,9 @@ against the weights in the same shrink priority group (other components
 with the same shrink priority). See below.  
 Example: `"shrink 50" or "shrink 50 40" `
 
-`shrinkprio/shp priox [prioy]` or `shrinkpriox/shpx priox or shrinkprioy/shpy prioy`  
+<code>**shrinkprio/shp** _priox [prioy]_</code> or
+<code>**shrinkpriox/shpx** _priox_</code> or
+<code>**shrinkprioy/shpy** _prioy_</code>  
 Sets the shrink priority for the component. When space is scarce and
 components needs be be shrunk, all components with higher priorities
 will be shrunk to their minimum size before any component with lower
@@ -843,7 +851,9 @@ used to make certain components shrink to min before other even start to
 shrink.  
 Example: `"shrinkpriority 50 50 " or "shp 200 200 " or "shpx 110"`
 
-`sizegroup/sg [name] or sizegroupx/sgx [name] or sizegroupy/sgy [name]`  
+<code>**sizegroup/sg** _[name]_</code> or
+<code>**sizegroupx/sgx** _[name]_</code> or
+<code>**sizegroupy/sgy** _[name]_</code>  
 Gives the component a size group name. All components that share a size
 group name will get the same **BoundSize** (min/preferred/max). It is
 used to make sure that all components in the same size group gets the
@@ -852,7 +862,9 @@ the group. An empty name `""` can be used.
 Example:
 `"sg" or "sg group1" or "sizegroup props" or "sgx" or "sizegroupy grp1"`.
 
-`eg/endgroup [name] or egx/endgroupx [name] or egy/endgroupy [name]`  
+<code>**eg/endgroup** _[name]_</code> or
+<code>**egx/endgroupx** _[name]_</code> or
+<code>**egy/endgroupy** _[name]_</code>  
 Gives the component an end group name and association. All components
 that share an end group name will get their right/bottom component side
 aligned. The right/bottom side will be that of the largest component in
@@ -863,7 +875,10 @@ So `"eg"` will be the same as `"egx"` in the normal case. An empty name
 Example:
 `"eg" or "eg group1" or "endgroup props" or "egx" or "endgroupy grp1"`.
 
-`gap left [right] [top] [bottom] or gaptop gap or gapleft  gap  or gapbottom  gap  or gapright  gap  or gapbefore  gap  or gapafter  gap`  
+<code>**gap** _left [right] [top] [bottom]_</code> or
+<code>**gaptop** _gap_</code> or <code>**gapleft** _gap_</code> or
+<code>**gapbottom** _gap_</code> or <code>**gapright** _gap_</code> or
+<code>**gapbefore** _gap_</code> or <code>**gapafter** _gap_</code>  
 Specifies the gap between the components in the cell or to the cell edge
 depending on what is around this component. If a gap size is missing it
 is interpreted as `0px`. The gaps are specified as a **BoundSize**. See
@@ -871,14 +886,14 @@ above.
 Example:
 `"gap 5px 10px 5px 7px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10:20:50:push" or "gapy 0:rel:null" or "gap 10! 10!" or "gapafter push"`.
 
-`gapx left [right]` or `gapy top [bottom]`  
+<code>**gapx** _left [right]_</code> or <code>**gapy** _top [bottom]_</code>  
 Specifies the horizontal or vertical gap between the components in the
 cell or to the cell edge depending on what is around this component. If
 a gap size is missing it is interpreted as `0px`. The gaps are specified
 as a **BoundSize**. See above.  
 Example: `"gapx 5px 10px" or "gapy unrel rel"`
 
-`id [groupid.] id`  
+<code>**id** _[groupid.] id_</code>  
 Sets the id (or name) for the component. If the `id` is not specified
 the `ComponentWrapper.getLinkId()` value is used. This value will give
 the component a way to be referenced from other components. Two or more
@@ -888,7 +903,7 @@ case sensitive. There must not be a dot first or last in the value
 string.  
 Example: `"id button1" or "id grp1.b1"`
 
-`pos x y [x2] [y2]`  
+<code>**pos** _x y [x2] [y2]_</code>  
 Positions the component with absolute coordinates relative to the
 container. If this keyword is used the component will **not** be put in
 a grid cell and will thus not affect the flow in the grid. One of
@@ -923,7 +938,8 @@ can be used for these links are:
 Example:
 `"pos (b1.x+b1.w/2) (b1.y2+rel)" or "pos (visual.x2 - pref) 200" or "pos n b1.y b1.x-rel b1.y2" "pos 100 100 200 200"`.
 
-`x x` or `x2 x2` or `y y` or `y2 y2`  
+<code>**x** _x_</code> or <code>**x2** _x2_</code> or
+<code>**y** _y_</code> or <code>**y2** _y2_</code>  
 Used to position the start (x or y),
 end (x2 or y2) or both edges of a component in absolute coordinates.
 This is used for when a component is in a grid or dock and it for
@@ -937,8 +953,8 @@ determined without references to the parent containers size it will
 affect the preferred size of the container.  
 Example: `"x button1.x" or "x2 (visual.x2-50)" or "x 100, y 300"`.
 
-`dock ("north" or "west" or "south" or "east" or "center"`) or
-`north/west/south/east`  
+<code>**dock** _("north" or "west" or "south" or "east" or "center")_</code> or
+<code>**north/west/south/east**</code>  
 Used for docking the component at an edge, or the center, of the
 container. Works much like `BorderLayout` except that there can be an
 arbitrary number of docking components. They get the docked space in the
@@ -950,7 +966,7 @@ constraint can be combined with many other constraints such as
 `padding`, `width`, `height` and `gap`.  
 Example: `"dock north" or "north" or "west, gap 5"`.
 
-`pad top [left] [bottom] [right`*`]`*  
+<code>**pad** _top [left] [bottom] [right]_</code>  
 Sets the padding for the component in absolute pixels. This is an
 absolute adjustment of the bounds if the component and is done at the
 last stage in the layout process. This means it will not affect gaps or
@@ -971,7 +987,8 @@ maximum size is reached. This only happens for components that have
 "line wrap" set to `true`.  
 Example: `"padding 10 10" or "pad 5 5 -5 -5" or "pad 0 0 1 1"`.
 
-`al/align alignx [aligny] or aligny/ay aligny or aligny/ax alignx`  
+<code>**al/align** _alignx [aligny]_</code> or
+<code>**aligny/ay** _aligny_</code> or <code>**aligny/ax** _alignx_</code>  
 Specifies the alignment for the component if the cell is larger than the
 component plus its gaps. The alignment can be specified as a
 **UnitValue** or **AlignKeyword**. See above. If **AlignKeyword** is
@@ -985,7 +1002,7 @@ large preferred size.
 Example:
 `"align 50% 50%" or "aligny top" or "alignx leading" or "align 100px" or "top, left" or "aligny baseline"`.
 
-`external`  
+<code>**external**</code>  
 Inhibits MigLayout to change the bounds for the component. The bounds
 should be handled/set from code outside this layout manager by calling
 the `setBounds(..)` (or equivalent depending on the GUI toolkit used)
@@ -998,7 +1015,7 @@ set the bounds, something that can't be done with any other layout
 managers.  
 Example: `"external"` or `"external, id mybutt"`.
 
-`hidemode`  
+<code>**hidemode**</code>  
 Sets the hide mode for the component. If the hide mode has been
 specified in the This hide mode can be overridden by the component
 constraint. The hide mode specified how the layout manager should handle
@@ -1014,7 +1031,7 @@ a component that isn't visible. The modes are:
 
 Example: `"hidemode 1"`
 
-`tag [name]`  
+<code>**tag** _[name]_</code>  
 Tags the component with metadata name that can be used by the layout
 engine. The tag can be used to explain for the layout manager what the
 components is showing, such as an **OK** or **Cancel** button. Unknown
