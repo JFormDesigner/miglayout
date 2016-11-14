@@ -337,7 +337,9 @@ Common Argument Types
 ***Note!** Italics is used to denote an argument. Square brackets are
 used to indicate an optional argument.*  
   
-**UnitValue**  
+
+#### UnitValue
+
 A value that represents a size. Normally it consist of a value (integer
 or float) and the unit type (e.g. `"mm"`). MigLayout support defining
 custom unit types and there are some special ones built in. These are
@@ -409,7 +411,8 @@ Unit values that can be specified for a component's width. These can
 -   **button** - A reference to the platform minimum size for a button.
     E.g. `"wmin button"`
 
-**BoundSize**  
+#### BoundSize
+
 A bound size is a size that optionally has a lower and/or upper bound.
 Practically it is a minimum/preferred/maximum size combination but none
 of the sizes are actually mandatory. If a size is missing (e.g. the
@@ -442,13 +445,14 @@ any of these constraints, for the indicated position, but they can for
 instance be used to set the minimum size to the preferred one or the
 other way around. E.g. `"pref:pref"` or `"min:min:pref"`.
 
-**AlignKeyword**  
+#### AlignKeyword
+
 For alignment purposes these keywords can be used: **t/top**,
 **l/left**, **b/bottom**, **r/right**, **lead/leading**,
 **trail/trailing** and **base/baseline**. Leading/trailing is dependent
 on if component orientation is "left-to-right" or "right-to-left". There
 is also a keyword `"align label"` or for columns/rows one need only to
-use "`label". `It will align the component(s), which is normally labels,
+use `"label"`. It will align the component(s), which is normally labels,
 left, center or right depending on the style guides for the platform.
 This currently means left justified on all platforms except OS X which
 has right justified labels.
@@ -551,14 +555,15 @@ Example: `"ttb" or "toptobottom" or "btt"`
 Sets the default hide mode for the layout. This hide mode can be
 overridden by the component constraint. The hide mode specified how the
 layout manager should handle a component that isn't visible. The modes
-are:  
-`0` - Default. Means that invisible components will be handled exactly
-as if they were visible.  
-`1` - The size of an invisible component will be set to `0, 0`.  
-`2` - The size of an invisible component will be set to `0, 0` and the
-gaps will also be set to `0` around it.  
-`3` - Invisible components will not participate in the layout at all and
-it will for instance not take up a grid cell.  
+are:
+-   `0` - Default. Means that invisible components will be handled exactly
+    as if they were visible.
+-   `1` - The size of an invisible component will be set to `0, 0`.
+-   `2` - The size of an invisible component will be set to `0, 0` and the
+    gaps will also be set to `0` around it.
+-   `3` - Invisible components will not participate in the layout at all and
+    it will for instance not take up a grid cell.
+
 Example: `"hidemode 1"`
 
 `nocache`  
@@ -575,7 +580,7 @@ Column/Row Constraints
 Column and row constraints works the same and hence forth the term
 **row** will be used for both columns and rows.
 
-Every \[\] section denotes constraints for that row. The gap size
+Every `[]` section denotes constraints for that row. The gap size
 between is the gap size dividing the two rows. The format for the
 constraint is:  
 `[constraint1, constraint2, ...]gap size[constraint1, constraint2, ...]gap size[...]..."`  
@@ -600,7 +605,7 @@ instance `"[10]"` is the same as `"[10][10][10]"` (affects wrapping if
 wrap is turned on though) .
 
 Gaps have only their size, however there are number of constraints that
-can be used between the `[ ]` and they will affect that row.
+can be used between the `[]` and they will affect that row.
 
 `":push"` (or `"push"` if used with the default gap size) can be added
 to the gap size to make that gap greedy and try to take as much space as
@@ -997,14 +1002,16 @@ Example: `"external"` or `"external, id mybutt"`.
 Sets the hide mode for the component. If the hide mode has been
 specified in the This hide mode can be overridden by the component
 constraint. The hide mode specified how the layout manager should handle
-a component that isn't visible. The modes are:  
-`0` - Default. Means that invisible components will be handled exactly
-as if they were visible.  
-`1` - The size of the component (if invisible) will be set to `0, 0`.  
-`2` - The size of the component (if invisible) will be set to `0, 0` and
-the gaps will also be set to `0` around it.  
-`3` - Invisible components will not participate in the layout at all and
-it will for instance not take up a grid cell.  
+a component that isn't visible. The modes are:
+
+-   `0` - Default. Means that invisible components will be handled exactly
+    as if they were visible.
+-   `1` - The size of the component (if invisible) will be set to `0, 0`.
+-   `2` - The size of the component (if invisible) will be set to `0, 0` and
+    the gaps will also be set to `0` around it.
+-   `3` - Invisible components will not participate in the layout at all and
+    it will for instance not take up a grid cell.
+
 Example: `"hidemode 1"`
 
 `tag [name]`  
