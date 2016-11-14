@@ -30,7 +30,7 @@ Initial Example
 An initial example that uses the grid functionality to create two rows
 with a right aligned label and a growing text field on each of the rows.
 It is using the default ("related") gaps except for the inter-row gap
-which is 10 pixels. ``
+which is 10 pixels.
 
     // Layout, Column and Row constraints as arguments.
     MigLayout layout = new MigLayout("fillx", "[right]rel[grow,fill]", "[]10[]");
@@ -43,7 +43,7 @@ which is 10 pixels. ``
 
 Or the same layout with the API constraint building. Since they are so
 similar the API version will not be handled much further in this white
-paper.``
+paper.
 
     // Layout, Column and Row constraints as arguments.
     MigLayout layout = new MigLayout(
@@ -125,7 +125,7 @@ instance and the handled components. They are:
     laid out components should be aligned as a group, should there be
     available space in the container. This constraint is set directly on
     the layout manager instance, either in the constructor or using a
-    standard get/set property. E.g. `"align center, fill".`
+    standard get/set property. E.g. `"align center, fill"`.
 -   **Row/Column Constraints**. Specifies the properties for the grid's
     rows and columns. Constraints such as sizes and default alignments
     can be specified. These constraints are set directly on the layout
@@ -330,7 +330,6 @@ bounds. This is a invaluable help for understanding why components end
 up where they do. There is no need for a DebugPanel or anything else
 that will modify the actual component creation code.
 
- 
 
 Common Argument Types
 ---------------------
@@ -454,7 +453,6 @@ left, center or right depending on the style guides for the platform.
 This currently means left justified on all platforms except OS X which
 has right justified labels.
 
- 
 
 Layout Constraints
 ------------------
@@ -570,7 +568,6 @@ size. If you are experiencing revalidation problems you can try to set
 this constraint.  
 Example: `"nocache"`
 
- 
 
 Column/Row Constraints
 ----------------------
@@ -688,7 +685,6 @@ omitted.
 Example:
 `"align 50%" or "align top" or "align leading" or "align 100px" or "top, left" or "align baseline"`
 
- 
 
 Component Constraints
 ---------------------
@@ -702,7 +698,7 @@ the constraints are specified one by one with comma signs as
 separators.  
 Example: `"width 100px!, grid 3 2, wrap"`.
 
-`wrap`` [gapsize]`  
+`wrap [gapsize]`  
 Wraps to a new column/row **after** the component has been put in the
 next available cell. This means that the **next** component will be put
 on the new row/column. Tip! Read wrap as "wrap after". If specified
@@ -711,7 +707,7 @@ next row (or column if `"flowy"`). Note that the gaps size is **after**
 the row that this component will end up at.  
 Example: `"wrap" or "wrap 15px" or "wrap push" or "wrap 15:push"`
 
-`newline`` [gapsize]`  
+`newline [gapsize]`  
 Wraps to a new column/row **before** the component is put in the next
 available cell. This means that the **this** component will be put on a
 new row/column. Tip! Read wrap as "on a newline". If specified
@@ -719,7 +715,7 @@ new row/column. Tip! Read wrap as "on a newline". If specified
 next row (or column if `"flowy"`). Note that the gaps size is **before**
 the row that this component will end up at.  
 Example:
-`"newline"`` or "newline 15px" or "newline push" or "newline 15:push" `
+`"newline"` or `"newline 15px" or "newline push" or "newline 15:push" `
 
 `push [weightx] [weighty] or pushx[weightx] or pushy [weighty]`  
 Makes the row and/or column that the component is residing in grow with
@@ -758,7 +754,8 @@ two will move to a new row/column as usual. Note! `"skip"` will will
 skip out if the splitting and continue in the next cell.  
 Example: `"split" or "split 4"`.
 
-`cell [col row [span x [span y]]] `Sets the grid cell that the component
+`cell [col row [span x [span y]]]`  
+Sets the grid cell that the component
 should be placed in. If there are already components in the cell they
 will share the cell. If there are two integers specified they will be
 interpreted as absolute coordinates for the column and row. The flow
@@ -776,7 +773,7 @@ flow direction is changed to `flowy` the components in the cell will be
 positioned above/under each other.  
 Example: `"flowy" or "flowx"`.
 
-`w/width size or ``h/height size`  
+`w/width size` or `h/height size`  
 Overrides the default size of the component that is set by the UI
 delegate or by the developer explicitly on the component. The size is
 specified as a **BoundSize**. See the *Common Argument Types* section
@@ -786,9 +783,9 @@ make it 10 pixels larger than normal or `"width max(100, 10%)"` to make
 it 10% of the container's width, but a maximum of 100 pixels.  
 Example:
 `"width 10!"  or "width 10" or "h 10:20" or "height pref!" or "w min:100:pref" or "w 100!,h 100!"`
-or `"width visual.x2-pref".`
+or `"width visual.x2-pref"`.
 
-`wmin/wmax x-size or ``hmin/hmax y-size`  
+`wmin/wmax x-size` or `hmin/hmax y-size`  
 Overrides the default size of the component for minimum or maximum size
 that is set by the UI delegate or by the developer explicitly on the
 component. The size is specified as a **BoundSize**. See the *Common
@@ -798,7 +795,7 @@ is supported and you can for instance set the size for a component with
 normal. These keywords are syntactic shorts for `"width size:pref"` or
 `"width min:pref:size"` with is exactly the same for minimum and maximun
 respectively.  
-Example: `"wmin 10"  or "hmax pref+100"``.`
+Example: `"wmin 10"  or "hmax pref+100"`.
 
 `grow [weightx] [weighty] or growx [weightx] or growy [weighty]`  
 Sets how keen the component should be to grow in relation to other
@@ -821,7 +818,7 @@ max before other components even start to grow.
 Example:
 `"growprio 50 50"  or "gp 110 90" or "gpx 200" or "prowprioy 200"`
 
-`shrink weightx [weighty] `  
+`shrink weightx [weighty]`  
 Sets how keen/reluctant the component should be to shrink in relation to
 other components. The weight is purely a relative value to other
 components' weight. Twice the weight will shrink twice as much when
@@ -832,7 +829,7 @@ against the weights in the same shrink priority group (other components
 with the same shrink priority). See below.  
 Example: `"shrink 50" or "shrink 50 40" `
 
-`shrinkprio/shp priox [prioy] `` or shrinkpriox/shpx priox or shrinkprioy/shpy prioy`  
+`shrinkprio/shp priox [prioy]` or `shrinkpriox/shpx priox or shrinkprioy/shpy prioy`  
 Sets the shrink priority for the component. When space is scarce and
 components needs be be shrunk, all components with higher priorities
 will be shrunk to their minimum size before any component with lower
@@ -867,7 +864,7 @@ depending on what is around this component. If a gap size is missing it
 is interpreted as `0px`. The gaps are specified as a **BoundSize**. See
 above.  
 Example:
-`"gap 5px 10px 5px 7px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10:20:50:push" or "gapy 0:rel:null" or "gap 10! 10!" or "``gapafter push"`.
+`"gap 5px 10px 5px 7px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10:20:50:push" or "gapy 0:rel:null" or "gap 10! 10!" or "gapafter push"`.
 
 `gapx left [right]` or `gapy top [bottom]`  
 Specifies the horizontal or vertical gap between the components in the
@@ -921,7 +918,8 @@ can be used for these links are:
 Example:
 `"pos (b1.x+b1.w/2) (b1.y2+rel)" or "pos (visual.x2 - pref) 200" or "pos n b1.y b1.x-rel b1.y2" "pos 100 100 200 200"`.
 
-`x x` or `x2 x2` or `y y` or `y2 y2`Used to position the start (x or y),
+`x x` or `x2 x2` or `y y` or `y2 y2`  
+Used to position the start (x or y),
 end (x2 or y2) or both edges of a component in absolute coordinates.
 This is used for when a component is in a grid or dock and it for
 instance needs to be adjusted to align with something else or in some
@@ -1039,7 +1037,6 @@ The supported tags are:
 
 Example: `"tag ok" or "tag help2"`.
 
- 
 
 Further Reading
 ---------------
