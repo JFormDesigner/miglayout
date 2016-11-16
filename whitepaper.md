@@ -353,7 +353,7 @@ The currently supported unit types are:
     be used by default. Default unit can be set with
     `PlatformDefaults.setDefaultUnit(int)`. E.g. `"10"`
 -   **px** - Pixels. Normal pixels mapped directly to the screen. E.g.
-    `"10px" or "10"`
+    `"10px"` or `"10"`
 -   **%** - A percentage of the container's size. May also be used for
     alignments where for instance `50%` means "centered". E.g. `"100%"`
 -   **lp** - Logical Pixels. If the normal font is used on the platform
@@ -370,12 +370,12 @@ The currently supported unit types are:
     showing on into account. E.g. `"10in"`
 -   **sp** - Percentage of the screen. Will take the pixel screen size
     that the component is showing on into account. `100.0` is the
-    right/bottom edge of the screen. E.g. `"sp 70" or "sp 73.627123"`
+    right/bottom edge of the screen. E.g. `"sp 70"` or `"sp 73.627123"`
 -   **al** - Visual bounds alignment. `"0al"` is left aligned, `"0.5al"`
     is centered and `"1al"` is right aligned. This unit is used with
     absolute positioning. E.g. `"0.2al"`
 -   **n/null** - Null value. Denotes the absence of a value. E.g.
-    `"n" or "null"`
+    `"n"` or `"null"`
 
 Unit values that are converted to pixels by the default
 `PlatformConverter`. The converted pixel sizes can be different for the
@@ -383,27 +383,27 @@ vertical and horizontal dimension.
 
 -   **r/rel/related** - Indicates that two components or columns/rows
     are considered related. The exact pixel size is determined by the
-    platform default. E.g. `"r" or "related"`
+    platform default. E.g. `"r"` or `"related"`
 -   **u/unrel/unrelated** - Indicates that two components or
     columns/rows are considered **un**related. The exact pixel size is
-    determined by the platform default. E.g. `"u" or "unrelated"`
+    determined by the platform default. E.g. `"u"` or `"unrelated"`
 -   **p/para/paragraph** - A spacing that is considered appropriate for
     a paragraph is used. The exact pixel size is determined by the
-    platform default. E.g. `"para" or "paragraph"`
+    platform default. E.g. `"para"` or `"paragraph"`
 -   **i/ind/indent** - A spacing that is considered appropriate
     for indent. The exact pixel size is determined by the
-    platform default. E.g. `"i" or "indent"`
+    platform default. E.g. `"i"` or `"indent"`
 
 Unit values that can be specified as a reference to component(s) sizes.
 These can **** be used on column/row constraint's size and as a
 reference in component constraint expressions.
 
 -   **min/minimum** - A reference to the **largest** minimum size of
-    the column/row. E.g. `"min" or "minimum"`
+    the column/row. E.g. `"min"` or `"minimum"`
 -   **p/pref/preferred** - A reference to the **largest** preferred size
-    of the column/row. E.g. `"p" or "pref" or "preferred"`
+    of the column/row. E.g. `"p"` or `"pref"` or `"preferred"`
 -   **max/maximum** - A reference to the **smallest** maximum size of
-    the column/row. E.g. `"max" or "maximum"`
+    the column/row. E.g. `"max"` or `"maximum"`
 
 Unit values that can be specified for a component's width. These can
 **only** be used on the **width** component constraints size.
@@ -471,21 +471,21 @@ the `count`:th component has been added the layout will wrap and
 continue on the next row/column. If wrap is turned off (default) the
 Component Constraint's `"wrap"` and `"newline"` can be used to control
 wrapping.  
-Example: `"wrap" or "wrap 4"`.
+Example: `"wrap"` or `"wrap 4"`.
 
 <code>**gap** _gapx [gapy]_</code> or <code>**gapx** _gapx_</code> or
 <code>**gapy** _gapy_</code>  
 Specifies the default gap between the cells in the grid and are thus
 overriding the platform default value. The gaps are specified as a
 **BoundSize**. See above.  
-Example:
-`"gap 5px 10px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10::50" or "gapy 0:rel:null" or "gap 10! 10!"`.
+Example: `"gap 5px 10px"` or `"gap unrel rel"` or `"gapx 5dlu"` or
+`"gapx 10::50"` or `"gapy 0:rel:null"` or `"gap 10! 10!"`.
 
 <code>**debug** _[millis]_</code>  
 Turns on debug painting for the container. This will lead to an active
 repaint every `millis` milliseconds. Default value is 1000 (once every
 second).  
-Example: `"debug" or "debug 4000"`.
+Example: `"debug"` or `"debug 4000"`.
 
 <code>**nogrid**</code>  
 Puts the layout in a flow-only mode. All components in the flow
@@ -506,7 +506,7 @@ At least one component need to have a `"grow"` constraint for it to fill
 the container. The space will be divided equal, though honoring
 `"growpriority"`. If no columns/rows has `"grow"` set the grow weight of
 the component in the rows/columns will migrate to that row/column.  
-Example: `"fill" or "fillx" or "filly"`
+Example: `"fill"` or `"fillx"` or `"filly"`
 
 <code>**ins/insets** _["dialog"]_ or _["panel"]_ or _[top/all [left] [bottom] [right]]_</code>  
 Specified the insets for the laid out container. The gaps before/after
@@ -522,7 +522,7 @@ explicitly for one or more sides. Insets on sides that are set to
 value will be used for the remaining side. The gaps are specified as a
 **UnitValue**. See above.  
 Example:
-`"insets dialog" or "ins 0" or "insets 10 n n n" or "insets 10 20 30 40"`.
+`"insets dialog"` or `"ins 0"` or `"insets 10 n n n"` or `"insets 10 20 30 40"`.
 
 <code>**flowy**</code>  
 Puts the layout in vertical flow mode. This means that the next cell is
@@ -539,19 +539,20 @@ container without changing their relative positions. The alignment can
 be specified as a **UnitValue** or **AlignKeyword**. See above. If an
 **AlignKeyword** is used the `"align"` keyword can be omitted.  
 Example:
-`"align 50% 50%" or "aligny top" or "alignx leading" or "align 100px" or "top, left" or "aligny baseline"`
+`"align 50% 50%"` or `"aligny top"` or `"alignx leading"` or
+`"align 100px"` or `"top, left"` or `"aligny baseline"`
 
 <code>**ltr/lefttoright**</code> or <code>**rtl/righttoleft**</code>  
 Overrides the container's `ComponentOrientation` property for this
 layout. Normally this value is dependent on the `Locale` that the
 application is running. This constraint overrides that value.  
-Example: `"ltr" or "lefttoright" or "rtl"`
+Example: `"ltr"` or `"lefttoright"` or `"rtl"`
 
 <code>**ttb/toptobottom**</code> or <code>**btt/bottomtotop**</code>  
 Specifies if the components should be added in the grid
 **bottom-to-top** or **top-to-bottom**. This value is not picked up from
 the container and is **top-to-bottom** by default.  
-Example: `"ttb" or "toptobottom" or "btt"`
+Example: `"ttb"` or `"toptobottom"` or `"btt"`
 
 <code>**hidemode**</code>  
 Sets the default hide mode for the layout. This hide mode can be
@@ -623,7 +624,7 @@ min/preferred size. This is most usable when the size of the row is not
 explicitly set and thus is determined by the largest component is the
 row(s). An empty name `""` can be used unless there should be more than
 one group.  
-Example: `"sg" or "sg grp1" or "sizegroup props"`.
+Example: `"sg"` or `"sg grp1"` or `"sizegroup props"`.
 
 <code>**fill**</code>  
 Set the *default value for components* to `"grow"` in the dimension of
@@ -651,7 +652,7 @@ column will not grow (unless `"fill"` is set in the Layout Constraints
 and no other row has grow weight above zero either). Grow weight will
 only be compared to the weights for rows with the same grow priority.
 See below.  
-Example: `"grow 50" or "grow"`
+Example: `"grow 50"` or `"grow"`
 
 <code>**growprio** _priority_</code>  
 Sets the grow priority for the row (not for the components in the row).
@@ -679,7 +680,7 @@ higher priorities will be shrunk to their minimum size before any row
 with lower priority are considered. The default shrink priority is 100.
 This can be used to make certain rows shrink to min before other rows
 even start to shrink.  
-Example: `"shrinkprio 50" or "shp 110"`
+Example: `"shrinkprio 50"` or `"shp 110"`
 
 <code>**al/align** _align_</code>  
 Specifies the default alignment for the components in the row. This
@@ -690,7 +691,8 @@ The alignment can be specified as a **UnitValue** or **AlignKeyword**.
 See above. If **AlignKeyword** is used the `"align"` part can be
 omitted.  
 Example:
-`"align 50%" or "align top" or "align leading" or "align 100px" or "top, left" or "align baseline"`
+`"align 50%"` or `"align top"` or `"align leading"` or
+`"align 100px"` or `"top, left"` or `"align baseline"`
 
 
 Component Constraints
@@ -712,7 +714,7 @@ on the new row/column. Tip! Read wrap as "wrap after". If specified
 `"gapsize"` will override the size of the gap between the current and
 next row (or column if `"flowy"`). Note that the gaps size is **after**
 the row that this component will end up at.  
-Example: `"wrap" or "wrap 15px" or "wrap push" or "wrap 15:push"`
+Example: `"wrap"` or `"wrap 15px"` or `"wrap push"` or `"wrap 15:push"`
 
 <code>**newline** _[gapsize]_</code>  
 Wraps to a new column/row **before** the component is put in the next
@@ -722,21 +724,21 @@ new row/column. Tip! Read wrap as "on a newline". If specified
 next row (or column if `"flowy"`). Note that the gaps size is **before**
 the row that this component will end up at.  
 Example:
-`"newline"` or `"newline 15px" or "newline push" or "newline 15:push" `
+`"newline"` or `"newline 15px"` or `"newline push"` or `"newline 15:push" `
 
 <code>**push** _[weightx] [weighty]_</code> or <code>**pushx** _[weightx]_</code>
 or <code>**pushy** _[weighty]_</code>  
 Makes the row and/or column that the component is residing in grow with
 `"weight"`. This can be used instead of having a "grow" keyword in the
 column/row constraints.  
-Example: `"push" or "pushx 200"`.
+Example: `"push"` or `"pushx 200"`.
 
 <code>**skip** _[count]_</code>  
 Skips a number of cells in the flow. This is used to jump over a number
 of cells before the next free cell is looked for. The skipping is done
 before this component is put in a cell and thus this cells is affected
 by it. `"count"` defaults to 1 if not specified.  
-Example: `"skip" or "skip 3"`.
+Example: `"skip"` or `"skip 3"`.
 
 <code>**span** _[countx] [county]_</code> or <code>**spany/sy** _[count]_</code>
 or <code>**spanx/sx** _[count]_</code>  
@@ -749,7 +751,7 @@ split at the same time, so it can for instance be spanning 2 cells and
 split that space for three components. `"span"` for the first cell in a
 row is the same thing as setting `"nogrid"` in the row constraint.  
 Example:
-`"span" or "span 4" or "span 2 2" or "spanx" or "spanx 10" or "spanx 2, spany 2"`.
+`"span"` or `"span 4"` or `"span 2 2"` or `"spanx"` or `"spanx 10"` or `"spanx 2, spany 2"`.
 
 <code>**split** _[count]_</code>  
 Splits the cell in a number of sub-cells. Practically this means that
@@ -761,7 +763,7 @@ alone will put all coming components in the same cell. `"split"`,
 `"wrap"` or `"newline"` will break out of the split celll. The latter
 two will move to a new row/column as usual. Note! `"skip"` will will
 skip out if the splitting and continue in the next cell.  
-Example: `"split" or "split 4"`.
+Example: `"split"` or `"split 4"`.
 
 <code>**cell** _[col row [span x [span y]]]_</code>  
 Sets the grid cell that the component
@@ -780,7 +782,7 @@ components flows from left to right they will do so for in-cell flow as
 well. The first component added to a cell can change the cell flow. If
 flow direction is changed to `flowy` the components in the cell will be
 positioned above/under each other.  
-Example: `"flowy" or "flowx"`.
+Example: `"flowy"` or `"flowx"`.
 
 <code>**w/width** _size_</code> or <code>**h/height** _size_</code>  
 Overrides the default size of the component that is set by the UI
@@ -791,8 +793,8 @@ for instance set the size for a component with `"width pref+10px"` to
 make it 10 pixels larger than normal or `"width max(100, 10%)"` to make
 it 10% of the container's width, but a maximum of 100 pixels.  
 Example:
-`"width 10!"  or "width 10" or "h 10:20" or "height pref!" or "w min:100:pref" or "w 100!,h 100!"`
-or `"width visual.x2-pref"`.
+`"width 10!"` or `"width 10"` or `"h 10:20"` or `"height pref!"` or
+`"w min:100:pref"` or `"w 100!,h 100!"` or `"width visual.x2-pref"`.
 
 <code>**wmin/wmax** _x-size_</code> or <code>**hmin/hmax** _y-size_</code>  
 Overrides the default size of the component for minimum or maximum size
@@ -804,7 +806,7 @@ is supported and you can for instance set the size for a component with
 normal. These keywords are syntactic shorts for `"width size:pref"` or
 `"width min:pref:size"` with is exactly the same for minimum and maximun
 respectively.  
-Example: `"wmin 10"  or "hmax pref+100"`.
+Example: `"wmin 10"` or `"hmax pref+100"`.
 
 <code>**grow** _[weightx] [weighty]_</code> or <code>**growx** _[weightx]_</code>
 or <code>**growy** _[weighty]_</code>  
@@ -817,7 +819,7 @@ set the grow weight is set to 0 and the component will not grow (unless
 explicitly make it not grow). Grow weight will only be compared against
 the weights in the same grow priority group and for the same cell. See
 below.  
-Example: `"grow 50 20" or "growx 50" or "grow" or "growx" or "growy 0"`
+Example: `"grow 50 20"` or `"growx 50"` or `"grow"` or `"growx"` or `"growy 0"`
 
 <code>**growprio/gp** _prio_</code> or <code>**growpriox/gpx** _priox_</code>
 or <code>**growprioy/gpy** _prioy_</code>  
@@ -827,7 +829,7 @@ component with lower priority are considered. The default grow priority
 is 100. This constraint can be used to make certain components grow to
 max before other components even start to grow.  
 Example:
-`"growprio 50 50"  or "gp 110 90" or "gpx 200" or "prowprioy 200"`
+`"growprio 50 50"` or `"gp 110 90"` or `"gpx 200"` or `"prowprioy 200"`
 
 <code>**shrink** _weightx [weighty]_</code>  
 Sets how keen/reluctant the component should be to shrink in relation to
@@ -838,7 +840,7 @@ defaults to 100, which means that all components by default can shrink
 to their minimum size, but no less. Shrink weight will only be compared
 against the weights in the same shrink priority group (other components
 with the same shrink priority). See below.  
-Example: `"shrink 50" or "shrink 50 40" `
+Example: `"shrink 50"` or `"shrink 50 40" `
 
 <code>**shrinkprio/shp** _priox [prioy]_</code> or
 <code>**shrinkpriox/shpx** _priox_</code> or
@@ -849,7 +851,7 @@ will be shrunk to their minimum size before any component with lower
 priority are considered. The default shrink priority is 100. This can be
 used to make certain components shrink to min before other even start to
 shrink.  
-Example: `"shrinkpriority 50 50 " or "shp 200 200 " or "shpx 110"`
+Example: `"shrinkpriority 50 50 "` or `"shp 200 200 "` or `"shpx 110"`
 
 <code>**sizegroup/sg** _[name]_</code> or
 <code>**sizegroupx/sgx** _[name]_</code> or
@@ -860,7 +862,7 @@ used to make sure that all components in the same size group gets the
 same min/preferred/max size which is that of the largest component in
 the group. An empty name `""` can be used.  
 Example:
-`"sg" or "sg group1" or "sizegroup props" or "sgx" or "sizegroupy grp1"`.
+`"sg"` or `"sg group1"` or `"sizegroup props"` or `"sgx"` or `"sizegroupy grp1"`.
 
 <code>**eg/endgroup** _[name]_</code> or
 <code>**egx/endgroupx** _[name]_</code> or
@@ -873,7 +875,7 @@ not specified the current flow dimension will be used (see `"flowx"`).
 So `"eg"` will be the same as `"egx"` in the normal case. An empty name
 `""` can be used.  
 Example:
-`"eg" or "eg group1" or "endgroup props" or "egx" or "endgroupy grp1"`.
+`"eg"` or `"eg group1"` or `"endgroup props"` or `"egx"` or `"endgroupy grp1"`.
 
 <code>**gap** _left [right] [top] [bottom]_</code> or
 <code>**gaptop** _gap_</code> or <code>**gapleft** _gap_</code> or
@@ -884,14 +886,15 @@ depending on what is around this component. If a gap size is missing it
 is interpreted as `0px`. The gaps are specified as a **BoundSize**. See
 above.  
 Example:
-`"gap 5px 10px 5px 7px" or "gap unrel rel" or "gapx 5dlu" or "gapx 10:20:50:push" or "gapy 0:rel:null" or "gap 10! 10!" or "gapafter push"`.
+`"gap 5px 10px 5px 7px"` or `"gap unrel rel"` or `"gapx 5dlu"` or
+`"gapx 10:20:50:push"` or `"gapy 0:rel:null"` or `"gap 10! 10!"` or `"gapafter push"`.
 
 <code>**gapx** _left [right]_</code> or <code>**gapy** _top [bottom]_</code>  
 Specifies the horizontal or vertical gap between the components in the
 cell or to the cell edge depending on what is around this component. If
 a gap size is missing it is interpreted as `0px`. The gaps are specified
 as a **BoundSize**. See above.  
-Example: `"gapx 5px 10px" or "gapy unrel rel"`
+Example: `"gapx 5px 10px"` or `"gapy unrel rel"`
 
 <code>**id** _[groupid.] id_</code>  
 Sets the id (or name) for the component. If the `id` is not specified
@@ -901,7 +904,7 @@ components may share the `group id` but the `id` should be unique within
 a layout. The value will be converted to lower case and are thus **not**
 case sensitive. There must not be a dot first or last in the value
 string.  
-Example: `"id button1" or "id grp1.b1"`
+Example: `"id button1"` or `"id grp1.b1"`
 
 <code>**pos** _x y [x2] [y2]_</code>  
 Positions the component with absolute coordinates relative to the
@@ -915,7 +918,7 @@ preferred size in that dimension. Non-specified values will be set to
 without references to the parent containers size it will affect the
 preferred size of the container.  
 Example:
-`"pos 50% 50% n n" or "pos 0.5al 0.5al" or "pos 100px 200px" or "position n n 200 200"`.
+`"pos 50% 50% n n"` or `"pos 0.5al 0.5al"` or `"pos 100px 200px"` or `"position n n 200 200"`.
 
 Absolute positions can also links to other components' bounds using
 their `id`s or `groupId`s. It can even use expressions around these
@@ -936,7 +939,8 @@ can be used for these links are:
     component **in screen coordinates**.
 
 Example:
-`"pos (b1.x+b1.w/2) (b1.y2+rel)" or "pos (visual.x2 - pref) 200" or "pos n b1.y b1.x-rel b1.y2" "pos 100 100 200 200"`.
+`"pos (b1.x+b1.w/2) (b1.y2+rel)"` or `"pos (visual.x2 - pref) 200"` or
+`"pos n b1.y b1.x-rel b1.y2"` or `"pos 100 100 200 200"`.
 
 <code>**x** _x_</code> or <code>**x2** _x2_</code> or
 <code>**y** _y_</code> or <code>**y2** _y2_</code>  
@@ -951,7 +955,7 @@ affect other components in the grid or dock, unless they are explicitly
 linked to the bounds of the component. If the position and size can be
 determined without references to the parent containers size it will
 affect the preferred size of the container.  
-Example: `"x button1.x" or "x2 (visual.x2-50)" or "x 100, y 300"`.
+Example: `"x button1.x"` or `"x2 (visual.x2-50)"` or `"x 100, y 300"`.
 
 <code>**dock** _("north" or "west" or "south" or "east" or "center")_</code> or
 <code>**north/west/south/east**</code>  
@@ -964,7 +968,7 @@ to use for clarity. The component will be put in special surrounding
 cells that spans the rest of the rows which means that the docking
 constraint can be combined with many other constraints such as
 `padding`, `width`, `height` and `gap`.  
-Example: `"dock north" or "north" or "west, gap 5"`.
+Example: `"dock north"` or `"north"` or `"west, gap 5"`.
 
 <code>**pad** _top [left] [bottom] [right]_</code>  
 Sets the padding for the component in absolute pixels. This is an
@@ -985,7 +989,7 @@ revalidation and the layout cycle will restart, now with a the newly
 increased size as the new **minimum** size. This will continue until the
 maximum size is reached. This only happens for components that have
 "line wrap" set to `true`.  
-Example: `"padding 10 10" or "pad 5 5 -5 -5" or "pad 0 0 1 1"`.
+Example: `"padding 10 10"` or `"pad 5 5 -5 -5"` or `"pad 0 0 1 1"`.
 
 <code>**al/align** _alignx [aligny]_</code> or
 <code>**aligny/ay** _aligny_</code> or <code>**aligny/ax** _alignx_</code>  
@@ -1000,7 +1004,8 @@ get a gap between them. That effect can better be accomplished by
 setting a gap between the components that have a minimum size and a
 large preferred size.  
 Example:
-`"align 50% 50%" or "aligny top" or "alignx leading" or "align 100px" or "top, left" or "aligny baseline"`.
+`"align 50% 50%"` or `"aligny top"` or `"alignx leading"` or
+`"align 100px"` or `"top, left"` or `"aligny baseline"`.
 
 <code>**external**</code>  
 Inhibits MigLayout to change the bounds for the component. The bounds
@@ -1059,7 +1064,7 @@ The supported tags are:
     far right.
 -   **other** - An uncategorized button.
 
-Example: `"tag ok" or "tag help2"`.
+Example: `"tag ok"` or `"tag help2"`.
 
 
 Further Reading
