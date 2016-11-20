@@ -29,7 +29,7 @@ Initial Example
 
 An initial example that uses the grid functionality to create two rows
 with a right aligned label and a growing text field on each of the rows.
-It is using the default ("related") gaps except for the inter-row gap
+It is using the default (`related`) gaps except for the inter-row gap
 which is 10 pixels.
 
     // Layout, Column and Row constraints as arguments.
@@ -185,7 +185,7 @@ and the next component has specified a 20 pixel gap before it, the
 resulting gap is **20** pixels and not 30. Gaps can actually be
 specified in a min/preferred/max size notion which gives them power to
 for instance grow/shrink as available space changes. Gaps between
-columns/rows and/or components in a cell can be appended with ":push"
+columns/rows and/or components in a cell can be appended with `:push`
 which means that the gap should be greedy and use any free space
 available. Pushing gaps in a cell will not force the cell to be bigger,
 it will only use the left over space in the cell. Pushing gaps between
@@ -225,7 +225,7 @@ surrounded by parentheses.
 Docking is fully supported by MigLayout. The docking is similar to the
 docking in `BorderLayout` but it is much more configurable and can have
 more than five components docked. Components can be glued to one of the
-edges: `"north"`, `"west"`, `"south","east"` or `"center"` and will "cut
+edges: `"north"`, `"west"`, `"south"`, `"east"` or `"center"` and will "cut
 that part off" so that no other components will be laid out there
 (except maybe absolute positioned components). The space that is left in
 the middle (center) is laid out with the normal grid, the normal way,
@@ -586,7 +586,7 @@ Column and row constraints works the same and hence forth the term
 Every `[]` section denotes constraints for that row. The gap size
 between is the gap size dividing the two rows. The format for the
 constraint is:  
-`[constraint1, constraint2, ...]gap size[constraint1, constraint2, ...]gap size[...]..."`  
+`[constraint1, constraint2, ...]gap size[constraint1, constraint2, ...]gap size[...]...`  
   
 Example: `"[fill]10[top,10:20]"`, `"[fill]push[]"`,
 `"[fill]10:10:100:push[top,10:20]"`.
@@ -724,12 +724,12 @@ new row/column. Tip! Read wrap as "on a newline". If specified
 next row (or column if `"flowy"`). Note that the gaps size is **before**
 the row that this component will end up at.  
 Example:
-`"newline"` or `"newline 15px"` or `"newline push"` or `"newline 15:push" `
+`"newline"` or `"newline 15px"` or `"newline push"` or `"newline 15:push"`
 
 <code>**push** _[weightx] [weighty]_</code> or <code>**pushx** _[weightx]_</code>
 or <code>**pushy** _[weighty]_</code>  
 Makes the row and/or column that the component is residing in grow with
-`"weight"`. This can be used instead of having a "grow" keyword in the
+`"weight"`. This can be used instead of having a `grow` keyword in the
 column/row constraints.  
 Example: `"push"` or `"pushx 200"`.
 
@@ -840,7 +840,7 @@ defaults to 100, which means that all components by default can shrink
 to their minimum size, but no less. Shrink weight will only be compared
 against the weights in the same shrink priority group (other components
 with the same shrink priority). See below.  
-Example: `"shrink 50"` or `"shrink 50 40" `
+Example: `"shrink 50"` or `"shrink 50 40"`
 
 <code>**shrinkprio/shp** _priox [prioy]_</code> or
 <code>**shrinkpriox/shpx** _priox_</code> or
