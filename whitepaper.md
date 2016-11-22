@@ -32,31 +32,35 @@ with a right aligned label and a growing text field on each of the rows.
 It is using the default (`related`) gaps except for the inter-row gap
 which is 10 pixels.
 
-    // Layout, Column and Row constraints as arguments.
-    MigLayout layout = new MigLayout("fillx", "[right]rel[grow,fill]", "[]10[]");
-    JPanel panel = new JPanel(layout);
+```java
+// Layout, Column and Row constraints as arguments.
+MigLayout layout = new MigLayout("fillx", "[right]rel[grow,fill]", "[]10[]");
+JPanel panel = new JPanel(layout);
 
-    panel.add(new JLabel("Enter size:"),   "");
-    panel.add(new JTextField(""),          "wrap");
-    panel.add(new JLabel("Enter weight:"), "");
-    panel.add(new JTextField(""),          "");
+panel.add(new JLabel("Enter size:"),   "");
+panel.add(new JTextField(""),          "wrap");
+panel.add(new JLabel("Enter weight:"), "");
+panel.add(new JTextField(""),          "");
+```
 
 Or the same layout with the API constraint building. Since they are so
 similar the API version will not be handled much further in this white
 paper.
 
-    // Layout, Column and Row constraints as arguments.
-    MigLayout layout = new MigLayout(
-         new LC().fillX(),
-         new AC().align("right").gap("rel").grow().fill(),
-         new AC().gap("10");
+```java
+// Layout, Column and Row constraints as arguments.
+MigLayout layout = new MigLayout(
+    new LC().fillX(),
+    new AC().align("right").gap("rel").grow().fill(),
+    new AC().gap("10");
 
-    JPanel panel = new JPanel(layout);
+JPanel panel = new JPanel(layout);
 
-    panel.add(new JLabel("Enter size:"));
-    panel.add(new JTextField(""),            new CC().wrap());
-    panel.add(new JLabel("Enter weight:"));
-    panel.add(new JTextField(""));
+panel.add(new JLabel("Enter size:"));
+panel.add(new JTextField(""),            new CC().wrap());
+panel.add(new JLabel("Enter weight:"));
+panel.add(new JTextField(""));
+```
 
 Introduction
 ------------
