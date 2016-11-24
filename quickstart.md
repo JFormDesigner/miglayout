@@ -9,7 +9,7 @@ To start using MiG Layout all you need to do is to download the
 miglayout.jar and include it in your project or classpath. There are
 different versions for Swing and SWT, but they work exactly the same.
 There is also a version for JSE 1.5 and one for 1.4 where the latter has
-*varargs* support in the API.
+`varargs` support in the API.
 
 Adding Components to the Grid
 =============================
@@ -56,7 +56,7 @@ panel.add(comp4);
 The grid can also be set to auto wrap at a specific column index by
 specifying that in the layout constraint when creating the layout
 manager. Next shows how to create the same grid without having to
-specify the "wrap" when adding *comp3*. It means that the grid should
+specify the `"wrap"` when adding `comp3`. It means that the grid should
 *auto wrap* after column 3 and there will thus not be a fourth column.
 
 ```java
@@ -71,7 +71,7 @@ panel.add(comp3, "wrap 15");
 ```
 
 will make the row gap 15 pixels high. You can even make the gap
-"pushing" by specifying for instance "*wrap push*".
+"pushing" by specifying for instance `"wrap push"`.
 
 Merging and Splitting Cells
 ===========================
@@ -211,7 +211,7 @@ If you don't want to use the "flow" way to put components into grid
 positions you can instead use absolute coordinates. For instance:
 
 ```java
-panel.add(comp1, "cell 0 0");  // "cell *column* *row*"
+panel.add(comp1, "cell 0 0");  // "cell column row"
 panel.add(comp2, "cell 1 0");
 panel.add(comp3, "cell 2 0");
 panel.add(comp4, "cell 0 1");
@@ -252,7 +252,7 @@ make the same grid as the second example above you do like this:
 
 ```java
 panel.add(comp1, "cell 0 0");
-panel.add(comp2, "cell 1 0 2 1");  // "cell *column row width height*"
+panel.add(comp2, "cell 1 0 2 1");  // "cell column row width height"
 panel.add(comp3, "cell 3 0");
 panel.add(comp4, "cell 0 1 4 1");
 ```
@@ -336,10 +336,10 @@ use any unit to specify the size but the default default is pixels (you
 can change this though). For instance "20mm" will make it 20 millimeters
 wide.
 
-Note that from 2.5 you can specify the gap when using the "*wrap*"
-keyword. E.g. "*wrap 15px*"
+Note that from 2.5 you can specify the gap when using the `"wrap"`
+keyword. E.g. `"wrap 15px"`
 
-The space between the square brackets *\[ (here..) \]* is the place
+The space between the square brackets `[ (here..) ]` is the place
 where you specify the row and component constraints such as alignment
 and size. More on this later.
 
@@ -385,8 +385,8 @@ panel.add(comp4);
 </tbody>
 </table>
 
-There are many gap constraints, for instance *"gapbefore"* and
-*"gaptop"*. You can read about them in the Cheat Sheet or White Paper on
+There are many gap constraints, for instance `"gapbefore"` and
+`"gaptop"`. You can read about them in the Cheat Sheet or White Paper on
 *www.migcomponents.com*.
 
 ### Component Sizes
@@ -395,11 +395,11 @@ Components have sizes provided by the GUI framework in some way. Swing
 even has support for minimum/preferred/maximum size while SWT only has a
 preferred size. You can override these sizes and for SWT even extend the
 functionality by providing the sizes in the constraints. The sizes are
-specified in the form: *"min:preferred:max"* (E.g. *"10:20:40"*). A size
+specified in the form: `"min:preferred:max"` (E.g. `"10:20:40"`). A size
 not specified will default to the component's corresponding size (E.g.
-*"10::40"* will set the min and max size but preserve the original
+`"10::40"` will set the min and max size but preserve the original
 preferred size). There are a lot of short ways to set the sizes, for
-instance *"40!"* means that all three sizes will be set to 40. Examples:
+instance `"40!"` means that all three sizes will be set to 40. Examples:
 
 ```java
 panel.add(comp, "width 10:20:40");
@@ -428,9 +428,9 @@ MigLayout layout = new MigLayout(
     "[min!][10::20][40mm!]");     // Row constraints
 ```
 
-Did you see the *"min!"* part? *"min"*, *"pref"*, *"max"* can be used on
+Did you see the `"min!"` part? `"min"`, `"pref"`, `"max"` can be used on
 both component and column/row sizes to refer to the original size. So
-*"min!"* means that minimum, preferred and maximum size will all be set
+`"min!"` means that minimum, preferred and maximum size will all be set
 to the minimum size of the row, ensuring the row will for sure get its
 minimum size.
 
@@ -475,14 +475,14 @@ Note that you can use the first letter of the alignment if you prefer.
 If you have more than one component in a cell the alignment keywords
 will not work since the behavior would be indeterministic. You can
 however accomplish the same thing by setting a gap before and/or after
-the components. That gap may have a minimum size of *0* and a preferred
+the components. That gap may have a minimum size of `0` and a preferred
 size of a really large value to create a "pushing" gap. There is even a
-keyword for this: *"push"*. So *"gapleft push"* will be the same as
-*"align right"* and work for multi-component cells as well.
+keyword for this: `"push"`. So `"gapleft push"` will be the same as
+`"align right"` and work for multi-component cells as well.
 
 ### Docking Components
 
-You can dock components much like how *BorderLayout* in Swing works,
+You can dock components much like how `BorderLayout` in Swing works,
 except you aren't confined to use only one component per side and a
 predefined usage of the corners. The docking components is always placed
 outside the normal layout. You can mix grid and docking components in
@@ -535,7 +535,7 @@ panel.add(comp4E, "east");        // "dock" keyword are actually optional
 
 Note that a docked component "cuts off" that part which means that the
 ordering of the docking components is important for how the corners are
-used. If the *comp4E* component was moved first in the code the table
+used. If the `comp4E` component was moved first in the code the table
 would look like this instead:
 
 <table style="border-collapse: collapse">
@@ -620,11 +620,11 @@ panel.add(comp, "shrink 0");  // Will not shrink.
 ```
 
 Components will never "push" the column/row's size to be larger using
-the *grow* keyword.
+the `grow` keyword.
 
 ### API Creation of Constraints
 
-Shown above is the *String* creation of the constraints. They are used
+Shown above is the `String` creation of the constraints. They are used
 because they are short to type and easy to read. From v2.0 of MiG Layout
 it is also possible to create the constraints with API calls. The API is
 mapped directly to the same constraints as the string version. There is
@@ -648,8 +648,8 @@ panel.add(comp, new CC().grow().width("20px"));  // Component constraint
 This document has only scratched the surface of what's possible with MiG
 Layout, yet it is the only thing that is needed to make beautiful and
 consistent layouts. Below is a list of things that is also supported by
-MiG Layout. For information how to use these features go to*
-*[*www.migcomponents.com*](http://www.migcomponents.com/)* *and press
+MiG Layout. For information how to use these features go to
+[www.migcomponents.com](http://www.migcomponents.com/) and press
 the MiG Layout link. There you will find Cheat Sheets for the
 constraints and a White Paper that explains how the layout manager works
 in more detail.
@@ -658,8 +658,8 @@ More features that are supported in MiG Layout are:
 
 -   The use of many different units. E.g. *mm*, *cm*, *%*, *inch*,
     *dots*, *logical pixels* and *screen percentage*. This include the
-    use of relative keywords like *"related"*, *"unrelated"* and
-    *"paragraph"* that will follow the design guides for the
+    use of relative keywords like `"related"`, `"unrelated"` and
+    `"paragraph"` that will follow the design guides for the
     different platforms.
 -   Grouping columns/rows/components by size to they will be the same
     width and/or height.
@@ -675,13 +675,13 @@ More features that are supported in MiG Layout are:
 -   Customization of almost any aspect of the layout engine. It is for
     instance possible to add new units, to specify gaps depending on
     component types and change all default values.
--   Tagging components with *"external"* so that they aren't touched by
+-   Tagging components with `"external"` so that they aren't touched by
     MiG Layout and thus it is possible to set their bounds manually, yet
     you can link to them.
 -   All constraints are JavaBeans and implements Serializable so they
-    are 100% compatible with persistence. *UnitValue* and *BoundSize*
+    are 100% compatible with persistence. `UnitValue` and `BoundSize`
     have custom PersistenceDelegates.
--   *IDEUtil* is a class to help integration on MiG Layout in any IDE.
+-   `IDEUtil` is a class to help integration on MiG Layout in any IDE.
     It can produce the source code for any constraint, both as API and
     String constraints.
 -   Much, much more..
