@@ -219,13 +219,28 @@ panel.add(comp4, "cell 0 1");
 
 Would produce the same grid as the first example at the top.
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
@@ -242,13 +257,26 @@ panel.add(comp3, "cell 3 0");
 panel.add(comp4, "cell 0 1 4 1");
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td colspan="3">comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td colspan="7" align="center">comp4</td>
 </tr>
 </tbody>
 </table>
@@ -277,13 +305,28 @@ MigLayout layout = new MigLayout(
 
 would create something like this:
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2</td>
+  <td style="width: 20px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 20px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 20px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
@@ -316,13 +359,28 @@ panel.add(comp3, "wrap");        // Wrap to next row
 panel.add(comp4);
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td style="padding-left: 30px">comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
@@ -441,11 +499,36 @@ panel.add(comp3S, "dock south");
 panel.add(comp4E, "east");        // "dock" keyword are actually optional
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td colspan="7" align="center">comp1N</td>
 </tr>
-<tr class="even">
+<tr style="background: white">
+  <td rowspan="4" valign="top">comp2W</td>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
+  <td rowspan="3" valign="top">comp4E</td>
+</tr>
+<tr style="height: 5px">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+</tr>
+<tr style="background: white">
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+</tr>
+<tr>
+  <td colspan="6" align="center">comp3S</td>
 </tr>
 </tbody>
 </table>
@@ -455,9 +538,36 @@ ordering of the docking components is important for how the corners are
 used. If the *comp4E* component was moved first in the code the table
 would look like this instead:
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td colspan="6" align="center">comp1N</td>
+  <td rowspan="5" valign="top">comp4E</td>
+</tr>
+<tr style="background: white">
+  <td rowspan="4" valign="top">comp2W</td>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
+</tr>
+<tr style="height: 5px">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+</tr>
+<tr style="background: white">
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+</tr>
+<tr>
+  <td colspan="5" align="center">comp3S</td>
 </tr>
 </tbody>
 </table>
