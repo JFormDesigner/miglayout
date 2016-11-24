@@ -20,10 +20,12 @@ on the same row. When you want to change to next row you specify the
 constraint "wrap" and the next component will be on the next row. For
 example:
 
-panel.add(comp1)  
-panel.add(comp2)  
-panel.add(comp3, "wrap") // Wrap to next row  
-panel.add(comp4)
+```java
+panel.add(comp1);
+panel.add(comp2);
+panel.add(comp3, "wrap");  // Wrap to next row
+panel.add(comp4);
+```
 
 <table>
 <tbody>
@@ -42,13 +44,16 @@ manager. Next shows how to create the same grid without having to
 specify the "wrap" when adding *comp3*. It means that the grid should
 *auto wrap* after column 3 and there will thus not be a fourth column.
 
-  
-*MigLayout layout = new MigLayout("wrap 3");*
+```java
+MigLayout layout = new MigLayout("wrap 3");
+```
 
 From v2.5 the next row's gap can be set directly after the wrap keyword.
 E.g:
 
-panel.add(comp3, "wrap 15")
+```java
+panel.add(comp3, "wrap 15");
+```
 
 will make the row gap 15 pixels high. You can even make the gap
 "pushing" by specifying for instance "*wrap push*".
@@ -59,10 +64,12 @@ Merging and Splitting Cells
 It is equally easy to *split* or *span* cells. Here is how to create the
 next grid.
 
-panel.add(comp1)  
-panel.add(comp2, "span 2") // The component will span two cells.  
-panel.add(comp3, "wrap") // Wrap to next row  
-panel.add(comp4, "span") // Span without "count" means span whole row.
+```java
+panel.add(comp1);
+panel.add(comp2, "span 2");    // The component will span two cells.
+panel.add(comp3, "wrap");      // Wrap to next row
+panel.add(comp4, "span");      // Span without "count" means span whole row.
+```
 
 <table>
 <tbody>
@@ -78,14 +85,15 @@ panel.add(comp4, "span") // Span without "count" means span whole row.
 Span optionally takes two indexes, *x* and *y*. This means that you can
 span cells like this:
 
-panel.add(comp1);  
-panel.add(comp2, "span 2 2"); // The component will span 2x2 cells.  
-panel.add(comp3, "wrap"); // Wrap to next row  
-panel.add(comp4);  
-panel.add(comp5, "wrap"); // Note that it "jumps over" the occupied
-cells.  
-panel.add(comp6);  
+```java
+panel.add(comp1);
+panel.add(comp2, "span 2 2");  // The component will span 2x2 cells.
+panel.add(comp3, "wrap");      // Wrap to next row
+panel.add(comp4);
+panel.add(comp5, "wrap");      // Note that it "jumps over" the occupied cells.
+panel.add(comp6);
 panel.add(comp7);
+```
 
 <table>
 <tbody>
@@ -98,11 +106,13 @@ panel.add(comp7);
 
 It is equally easy and intuitive to split cells.
 
-panel.add(comp1);  
-panel.add(comp2, "split 2"); // Split the cell in two  
-panel.add(comp3); // Will be in same cell as previous  
-panel.add(comp4, "wrap"); // Wrap to next row  
+```java
+panel.add(comp1);
+panel.add(comp2, "split 2");   // Split the cell in two
+panel.add(comp3);              // Will be in same cell as previous
+panel.add(comp4, "wrap");      // Wrap to next row
 panel.add(comp5);
+```
 
 <table>
 <tbody>
@@ -119,17 +129,17 @@ It is of course possible to both *span* and *split* cells at the same
 time. You can for instance span three cells and split that
 three-cell-wide cell into two.
 
-### 
-
 ### Using Absolute Cell Coordinates
 
 If you don't want to use the "flow" way to put components into grid
 positions you can instead use absolute coordinates. For instance:
 
-panel.add(comp1, "cell 0 0");// "cell *column* *row*"  
-panel.add(comp2, "cell 1 0");  
-panel.add(comp3, "cell 2 0");  
+```java
+panel.add(comp1, "cell 0 0");  // "cell *column* *row*"
+panel.add(comp2, "cell 1 0");
+panel.add(comp3, "cell 2 0");
 panel.add(comp4, "cell 0 1");
+```
 
 Would produce the same grid as the first example at the top.
 
@@ -149,10 +159,12 @@ component is put in a cell that already has a component the cell will be
 split and both cells will end up in the same cell, sharing its space. To
 make the same grid as the second example above you do like this:
 
-panel.add(comp1, "cell 0 0");  
-panel.add(comp2, "cell 1 0 2 1"); // "cell *column row width height*"  
-panel.add(comp3, "cell 3 0");  
+```java
+panel.add(comp1, "cell 0 0");
+panel.add(comp2, "cell 1 0 2 1");  // "cell *column row width height*"
+panel.add(comp3, "cell 3 0");
 panel.add(comp4, "cell 0 1 4 1");
+```
 
 <table>
 <tbody>
@@ -180,10 +192,12 @@ rows between the real columns and rows. Their size can be set in the
 column and rows constraints when creating the layout manager (or set on
 the layout manager object afterwards). E.g.
 
-MigLayout layout = new MigLayout(  
- "", // Layout Constraints  
- "\[\]\[\]20\[\]", // Column constraints  
- "\[\]20\[\]"); // Row constraints
+```java
+MigLayout layout = new MigLayout(
+    "",           // Layout Constraints
+    "[][]20[]",   // Column constraints
+    "[]20[]");    // Row constraints
+```
 
 would create something like this:
 
@@ -219,10 +233,12 @@ components is the distance to the closest edge, may it be the cell
 "wall" or another component in the same cell. If we use the first
 example this is how it would be:
 
-panel.add(comp1)  
-panel.add(comp2, "gapleft 30")  
-panel.add(comp3, "wrap") // Wrap to next row  
-panel.add(comp4)
+```java
+panel.add(comp1);
+panel.add(comp2, "gapleft 30");
+panel.add(comp3, "wrap");        // Wrap to next row
+panel.add(comp4);
+```
 
 <table>
 <tbody>
@@ -239,8 +255,6 @@ There are many gap constraints, for instance *"gapbefore"* and
 *"gaptop"*. You can read about them in the Cheat Sheet or White Paper on
 *www.migcomponents.com*.
 
-### 
-
 ### Component Sizes
 
 Components have sizes provided by the GUI framework in some way. Swing
@@ -253,13 +267,17 @@ not specified will default to the component's corresponding size (E.g.
 preferred size). There are a lot of short ways to set the sizes, for
 instance *"40!"* means that all three sizes will be set to 40. Examples:
 
+```java
 panel.add(comp, "width 10:20:40");
+```
 
-panel.add(comp, "height ::40"); // Same as "hmax 40".
+```java
+panel.add(comp, "height ::40");     // Same as "hmax 40".
+```
 
-panel.add(comp, "w 40!"); // w is short for width.
-
-### 
+```java
+panel.add(comp, "w 40!");           // w is short for width.
+```
 
 ### Row and Column sizes
 
@@ -269,18 +287,18 @@ the component sizes above. You specify the column/row size in the
 corresponding constraint, normally when creating the layout manager.
 Here are some examples:
 
-MigLayout layout = new MigLayout(  
- "", // Layout Constraints  
- "\[10\]\[20:30:40\]\[40!\]\[::40\]", // Column constraints  
- "\[min!\]\[10::20\]\[40mm!\]"); // Row constraints
+```java
+MigLayout layout = new MigLayout(
+    "",                           // Layout Constraints
+    "[10][20:30:40][40!][::40]",  // Column constraints
+    "[min!][10::20][40mm!]");     // Row constraints
+```
 
 Did you see the *"min!"* part? *"min"*, *"pref"*, *"max"* can be used on
 both component and column/row sizes to refer to the original size. So
 *"min!"* means that minimum, preferred and maximum size will all be set
 to the minimum size of the row, ensuring the row will for sure get its
 minimum size.
-
-### 
 
 ### Panel Insets
 
@@ -290,11 +308,13 @@ platforms. Sometimes this is not what you want or you just want to
 specify another inset. You can change this in the layout constraint.
 Examples:
 
+```java
 MigLayout layout = new MigLayout("insets 10");
+```
 
-MigLayout layout = new MigLayout("insets 0 10 10 20"); // T, L, B, R.
-
-### 
+```java
+MigLayout layout = new MigLayout("insets 0 10 10 20");  // T, L, B, R.
+```
 
 ### Component Alignment
 
@@ -303,15 +323,18 @@ there is space left over. You can specify this in the column/row
 constraints to get a default align for the components and/or you can
 specify it in the component's constraints.
 
-MigLayout layout = new MigLayout(  
-"", // Layout Constraints  
-"\[center\]\[right\]\[left\]\[c\]", // Column constraints with default
-align  
-"\[top\]\[center\]\[b\]"); // Row constraints with default align
+```java
+MigLayout layout = new MigLayout(
+    "",                          // Layout Constraints
+    "[center][right][left][c]",  // Column constraints with default align
+    "[top][center][b]");         // Row constraints with default align
+```
 
 and/or when you add the components:
 
+```java
 panel.add(comp, "align left");
+```
 
 Note that you can use the first letter of the alignment if you prefer.
 
@@ -323,8 +346,6 @@ size of a really large value to create a "pushing" gap. There is even a
 keyword for this: *"push"*. So *"gapleft push"* will be the same as
 *"align right"* and work for multi-component cells as well.
 
-### 
-
 ### Docking Components
 
 You can dock components much like how *BorderLayout* in Swing works,
@@ -333,14 +354,16 @@ predefined usage of the corners. The docking components is always placed
 outside the normal layout. You can mix grid and docking components in
 the same layout.
 
-panel.add(comp1)  
-panel.add(comp2)  
-panel.add(comp3, "wrap") // Wrap to next row  
-panel.add(comp4)  
-panel.add(comp1N, "dock north")  
-panel.add(comp2W, "dock west")  
-panel.add(comp3S, "dock south")  
-panel.add(comp4E, "east")// "dock" keyword are actually optional
+```java
+panel.add(comp1);
+panel.add(comp2);
+panel.add(comp3, "wrap");         // Wrap to next row
+panel.add(comp4);
+panel.add(comp1N, "dock north");
+panel.add(comp2W, "dock west");
+panel.add(comp3S, "dock south");
+panel.add(comp4E, "east");        // "dock" keyword are actually optional
+```
 
 <table>
 <tbody>
@@ -367,8 +390,6 @@ Docking components is a very good and easy way to layout panels but its
 usages are many. You can get spacing around the docking components by
 using normal Component Gaps as described above.
 
-### 
-
 ### Growing and Shrinking Components Depending on Available Space
 
 The *grow* and *shrink* behavior for both columns/rows and components
@@ -387,25 +408,33 @@ largest minimum size of its components.
 What is normally enough to know is how to make a component or row/column
 grow and/or disallow it to shrink. Examples:
 
-MigLayout layout = new MigLayout(  
- "", // Layout Constraints  
- "\[grow\]\[\]\[grow\]", // Column constraints  
- "\[\]\[shrink 0\]"); // Row constraints
+```java
+MigLayout layout = new MigLayout(
+    "",                // Layout Constraints
+    "[grow][][grow]",  // Column constraints
+    "[][shrink 0]");   // Row constraints
+```
 
 And for components:
 
-panel.add(comp, "growx") // Grow horizontally. Same as "growx 100"
+```java
+panel.add(comp, "growx");     // Grow horizontally. Same as "growx 100"
+```
 
-panel.add(comp, "growy") // Grow vertically. Same as "growy 100"
+```java
+panel.add(comp, "growy");     // Grow vertically. Same as "growy 100"
+```
 
-panel.add(comp, "grow") // Grow both. Same as "grow 100 100"
+```java
+panel.add(comp, "grow");      // Grow both. Same as "grow 100 100"
+```
 
-panel.add(comp, "shrink 0") // Will not shrink.
+```java
+panel.add(comp, "shrink 0");  // Will not shrink.
+```
 
 Components will never "push" the column/row's size to be larger using
 the *grow* keyword.
-
-### 
 
 ### API Creation of Constraints
 
@@ -417,14 +446,16 @@ JavaDoc for the API calls but the White Paper and Cheat Sheet is still
 the best and most complete source of information regarding the different
 constraints. Here is an example of the usage of API constraints:
 
-MigLayout layout = new MigLayout(  
- new LC().wrapAfter(3), // Layout Constraints  
- new AX().grow(1,3,4).size("10px",1,2), // Column constraints  
- new AX().noGrid(1,4)); // Row constraints
+```java
+MigLayout layout = new MigLayout(
+    new LC().wrapAfter(3),                       // Layout Constraints
+    new AX().grow(1,3,4).size("10px",1,2),       // Column constraints
+    new AX().noGrid(1,4));                       // Row constraints
+```
 
-panel.add(comp, new CC().grow().width("20px")) // Component constraint
-
-### 
+```java
+panel.add(comp, new CC().grow().width("20px"));  // Component constraint
+```
 
 ### Further Reading
 
@@ -468,5 +499,3 @@ More features that are supported in MiG Layout are:
     It can produce the source code for any constraint, both as API and
     String constraints.
 -   Much, much more..
-
-
