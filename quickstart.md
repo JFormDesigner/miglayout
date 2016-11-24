@@ -27,13 +27,28 @@ panel.add(comp3, "wrap");  // Wrap to next row
 panel.add(comp4);
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
@@ -71,13 +86,26 @@ panel.add(comp3, "wrap");      // Wrap to next row
 panel.add(comp4, "span");      // Span without "count" means span whole row.
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td colspan="3">comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td colspan="7" align="center">comp4</td>
 </tr>
 </tbody>
 </table>
@@ -95,11 +123,44 @@ panel.add(comp6);
 panel.add(comp7);
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td colspan="3" rowspan="3">comp2</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp3</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+</tr>
+<tr>
+  <td>comp4</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp5</td>
+</tr>
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+</tr>
+<tr>
+  <td>comp6</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp7</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
@@ -114,13 +175,28 @@ panel.add(comp4, "wrap");      // Wrap to next row
 panel.add(comp5);
 ```
 
-<table>
+<table style="border-collapse: collapse">
 <tbody>
-<tr class="odd">
+<tr>
+  <td>comp1</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp2 &nbsp; comp3</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td>comp4</td>
 </tr>
-<tr class="even">
+<tr style="height: 5px; background: white">
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
+  <td style="padding: 0"></td>
 </tr>
-<tr class="odd">
+<tr>
+  <td>comp5</td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
+  <td style="width: 5px; padding: 0"></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
