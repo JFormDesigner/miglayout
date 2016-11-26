@@ -535,7 +535,7 @@ the right. Default is horizontal flow.
 Example: `"flowy"`
 
 <code>**al/align** _alignx [aligny]_</code> or <code>**aligny/ay** _aligny_</code>
-or <code>**aligny/ax** _alignx_</code>  
+or <code>**alignx/ax** _alignx_</code>  
 Specifies the alignment for the laid out components as a group. If the
 total bounds of all laid out components does not fill the entire
 container the align value is used to position the components within the
@@ -996,7 +996,7 @@ maximum size is reached. This only happens for components that have
 Example: `"padding 10 10"` or `"pad 5 5 -5 -5"` or `"pad 0 0 1 1"`.
 
 <code>**al/align** _alignx [aligny]_</code> or
-<code>**aligny/ay** _aligny_</code> or <code>**aligny/ax** _alignx_</code>  
+<code>**aligny/ay** _aligny_</code> or <code>**alignx/ax** _alignx_</code>  
 Specifies the alignment for the component if the cell is larger than the
 component plus its gaps. The alignment can be specified as a
 **UnitValue** or **AlignKeyword**. See above. If **AlignKeyword** is
