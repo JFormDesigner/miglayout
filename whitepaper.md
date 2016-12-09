@@ -911,7 +911,7 @@ case sensitive. There must not be a dot first or last in the value
 string.  
 Example: `"id button1"` or `"id grp1.b1"`
 
-<code>**pos** _x y [x2] [y2]_</code>  
+<code>**pos** _x y [x2 [y2]]_</code>  
 Positions the component with absolute coordinates relative to the
 container. If this keyword is used the component will **not** be put in
 a grid cell and will thus not affect the flow in the grid. One of
