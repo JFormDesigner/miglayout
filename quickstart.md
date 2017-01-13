@@ -635,8 +635,8 @@ constraints. Here is an example of the usage of API constraints:
 ```java
 MigLayout layout = new MigLayout(
     new LC().wrapAfter(3),                       // Layout Constraints
-    new AX().grow(1,3,4).size("10px",1,2),       // Column constraints
-    new AX().noGrid(1,4));                       // Row constraints
+    new AC().grow(1,3,4).size("10px",1,2),       // Column constraints
+    new AC().noGrid(1,4));                       // Row constraints
 ```
 
 ```java
